@@ -28,7 +28,7 @@ A modern, full-stack productivity application that combines Pomodoro technique w
 - **API:** RESTful APIs with OpenAPI documentation
 
 ### Frontend (React + Vite)
-- **Framework:** React 18 with TypeScript
+- **Framework:** React 18
 - **Build Tool:** Vite for fast development and optimized builds
 - **Styling:** Tailwind CSS with custom design system
 - **State Management:** TanStack Query for server state
