@@ -4,8 +4,6 @@
 
 A modern, full-stack productivity application that combines Pomodoro technique with intelligent task management and comprehensive analytics.
 
-![Momentum Demo](https://via.placeholder.com/800x400/6366f1/ffffff?text=Momentum+Dashboard)
-
 ## ✨ Features
 
 ### Core Functionality
