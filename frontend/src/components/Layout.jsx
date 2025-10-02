@@ -13,11 +13,11 @@ export default function Layout({ children }) {
     ]
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             {/* Sidebar */}
-            <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-lg z-10">
-                <div className="flex h-16 items-center px-6">
-                    <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+            <div className="fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 shadow-lg z-10">
+                <div className="flex h-16 items-center px-6 border-b dark:border-gray-700">
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                         Momentum
                     </h1>
                 </div>
@@ -33,8 +33,8 @@ export default function Layout({ children }) {
                                 to={item.href}
                                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg mb-1 transition-all ${
                                     isActive
-                                        ? 'bg-primary-50 text-primary-700 font-medium shadow-sm'
-                                        : 'text-gray-700 hover:bg-gray-50'
+                                        ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-medium shadow-sm'
+                                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                                 }`}
                             >
                                 <Icon size={20} />
@@ -44,10 +44,10 @@ export default function Layout({ children }) {
                     })}
                 </nav>
 
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t">
-                    <div className="text-sm text-gray-600">
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t dark:border-gray-700">
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
                         <p className="font-medium">Demo Mode</p>
-                        <p className="text-xs text-gray-500 mt-1">Backend coming soon</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Backend coming soon</p>
                     </div>
                 </div>
             </div>

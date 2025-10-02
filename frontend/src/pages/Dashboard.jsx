@@ -9,8 +9,8 @@ export default function Dashboard() {
     return (
         <div>
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-                <p className="text-gray-600 mt-1">Track your productivity and progress</p>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+                <p className="text-gray-600 dark:text-gray-400 mt-1">Track your productivity and progress</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -70,45 +70,45 @@ export default function Dashboard() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card>
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">Weekly Progress</h2>
+                    <h2 className="text-lg font-semibold text-gray-900 mb-4  dark:text-white">Weekly Progress</h2>
                     <div className="space-y-3">
                         {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day) => (
                             <div key={day} className="flex items-center gap-3">
-                                <span className="text-sm font-medium text-gray-600 w-12">{day}</span>
+                                <span className="text-sm font-medium text-gray-600 w-12  dark:text-white">{day}</span>
                                 <div className="flex-1 bg-gray-200 rounded-full h-2">
                                     <div
                                         className="bg-primary-600 h-2 rounded-full transition-all"
                                         style={{ width: `${Math.random() * 100}%` }}
                                     />
                                 </div>
-                                <span className="text-sm text-gray-600 w-12 text-right">{Math.floor(Math.random() * 180)}m</span>
+                                <span className="text-sm text-gray-600 w-12 text-right dark:text-white">{Math.floor(Math.random() * 180)}m</span>
                             </div>
                         ))}
                     </div>
                 </Card>
 
                 <Card>
-                    <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
+                    <h2 className="text-lg font-semibold text-gray-900 mb-4  dark:text-white">Recent Activity</h2>
                     <div className="space-y-4">
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-green-600 rounded-full mt-2" />
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900">Completed "Setup Spring Boot backend"</p>
-                                <p className="text-xs text-gray-600 mt-1">2 hours ago</p>
+                                <p className="text-sm font-medium text-gray-900  dark:text-white">Completed "Setup Spring Boot backend"</p>
+                                <p className="text-xs text-gray-600 mt-1  dark:text-white">2 hours ago</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-primary-600 rounded-full mt-2" />
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900">Started focus session (25 min)</p>
-                                <p className="text-xs text-gray-600 mt-1">3 hours ago</p>
+                                <p className="text-sm font-medium text-gray-900  dark:text-white">Started focus session (25 min)</p>
+                                <p className="text-xs text-gray-600 mt-1  dark:text-white">3 hours ago</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-orange-600 rounded-full mt-2" />
                             <div className="flex-1">
-                                <p className="text-sm font-medium text-gray-900">Reached 5-day streak! 🔥</p>
-                                <p className="text-xs text-gray-600 mt-1">Today</p>
+                                <p className="text-sm font-medium text-gray-900  dark:text-white">Reached 5-day streak! 🔥</p>
+                                <p className="text-xs text-gray-600 mt-1  dark:text-white">Today</p>
                             </div>
                         </div>
                     </div>

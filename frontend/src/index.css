@@ -7,3 +7,4 @@
     --color-primary-700: #1d4ed8;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
