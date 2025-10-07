@@ -9,7 +9,7 @@ export default function Timer() {
         <div>
             <div className="mb-8 text-center">
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Pomodoro Timer</h1>
-                <p className="text-gray-600 mt-1 dark:text-white">Focus for 25 minutes, then take a break</p>
+                <p className="text-gray-600 mt-1 dark:text-gray-400">Focus for 25 minutes, then take a break</p>
             </div>
 
             <TimerDisplay
