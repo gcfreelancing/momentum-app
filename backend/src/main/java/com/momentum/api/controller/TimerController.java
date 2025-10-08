@@ -55,13 +55,6 @@ public class TimerController {
                     session.setCompleted(true);
                     session.setCompletedAt(LocalDateTime.now());
 
-                    // Atualiza tempo gasto na task se existir
-                    if (session.getTask() != null) {
-                        var task = session.getTask();
-                        task.setTimeSpent(task.getTimeSpent() + session.getDurationMinutes());
-                        taskRepository.save(task);
-                    }
-
                     TimerSession updatedSession = timerSessionRepository.save(session);
                     return ResponseEntity.ok(updatedSession);
                 })

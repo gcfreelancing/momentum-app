@@ -33,9 +33,6 @@ public class Task {
     @Column(nullable = false)
     private Boolean completed = false;
 
-    @Column(name = "time_spent")
-    private Integer timeSpent = 0;
-
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
