@@ -14,8 +14,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
-@NoArgsConstructor  // ← Lombok cria o construtor automaticamente
+@NoArgsConstructor  // ← Lombok creates the constructor automatically
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
