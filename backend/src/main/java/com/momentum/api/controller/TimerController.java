@@ -5,7 +5,7 @@ import com.momentum.api.repository.TimerSessionRepository;
 import com.momentum.api.repository.UserRepository;
 import com.momentum.api.repository.TaskRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +14,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/timer")
 @CrossOrigin(origins = "http://localhost:5173")
 public class TimerController {
 
-    @Autowired
     private TimerSessionRepository timerSessionRepository;
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     private TaskRepository taskRepository;
 
     // POST start timer session

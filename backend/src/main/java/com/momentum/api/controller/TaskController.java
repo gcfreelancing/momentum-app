@@ -5,7 +5,7 @@ import com.momentum.api.repository.TaskRepository;
 import com.momentum.api.repository.UserRepository;
 import com.momentum.api.repository.CategoryRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,20 +13,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/tasks")
 @CrossOrigin(origins = "http://localhost:5173")
 public class TaskController {
 
-    @Autowired
     private TaskRepository taskRepository;
 
-    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
     private CategoryRepository categoryRepository;
 
-    // GET all tasks (mock user ID = 1 por agora)
+    // GET all tasks (mock user ID = 1)
     @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
         List<Task> tasks = taskRepository.findByUserIdOrderByCreatedAtDesc(1L);

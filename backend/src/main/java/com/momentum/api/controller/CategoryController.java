@@ -6,7 +6,7 @@ import com.momentum.api.repository.CategoryRepository;
 import com.momentum.api.repository.UserRepository;
 import com.momentum.api.repository.TaskRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/categories")
 @CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
@@ -23,12 +24,6 @@ public class CategoryController {
     private final UserRepository userRepository;
 
     private final TaskRepository taskRepository;
-
-    public CategoryController(CategoryRepository categoryRepository, UserRepository userRepository, TaskRepository taskRepository) {
-        this.categoryRepository = categoryRepository;
-        this.userRepository = userRepository;
-        this.taskRepository = taskRepository;
-    }
 
     // GET all categories for user
     @GetMapping

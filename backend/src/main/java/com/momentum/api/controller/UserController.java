@@ -2,16 +2,16 @@ package com.momentum.api.controller;
 
 import com.momentum.api.entities.User;
 import com.momentum.api.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/users")
 @CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
-    @Autowired
     private UserRepository userRepository;
 
     // GET user profile (mock ID = 1)
