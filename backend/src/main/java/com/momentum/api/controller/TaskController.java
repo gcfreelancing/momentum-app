@@ -44,13 +44,13 @@ public class TaskController {
     // POST create new task
     @PostMapping
     public ResponseEntity<Task> createTask(@Valid @RequestBody Task task) {
-        // Mock user (ID = 1) - depois vem do JWT
+        // Mock user (ID = 1)
         var user = userRepository.findById(1L)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         task.setUser(user);
 
-        // Se tem categoria, valida que existe
+        // If it has a category, it validates what already exists
         if (task.getCategory() != null && task.getCategory().getId() != null) {
             var category = categoryRepository.findById(task.getCategory().getId())
                     .orElse(null);
@@ -70,8 +70,14 @@ public class TaskController {
                     task.setDescription(taskDetails.getDescription());
                     task.setCompleted(taskDetails.getCompleted());
 
-                    if (taskDetails.getCategory() != null) {
-                        task.setCategory(taskDetails.getCategory());
+                    if (taskDetails.getCategory() != null && taskDetails.getCategory().getId() != null) {
+                        // Fetch the full category from the database
+                        var category = categoryRepository.findById(taskDetails.getCategory().getId())
+                                .orElse(null);
+                        task.setCategory(category);
+                    } else {
+                        // If category is null or has no ID, remove category
+                        task.setCategory(null);
                     }
 
                     Task updatedTask = taskRepository.save(task);

@@ -1,8 +1,10 @@
 package com.momentum.api.controller;
 
 import com.momentum.api.entities.Category;
+import com.momentum.api.entities.Task;
 import com.momentum.api.repository.CategoryRepository;
 import com.momentum.api.repository.UserRepository;
+import com.momentum.api.repository.TaskRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,11 +18,17 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final TaskRepository taskRepository;
+
+    public CategoryController(CategoryRepository categoryRepository, UserRepository userRepository, TaskRepository taskRepository) {
+        this.categoryRepository = categoryRepository;
+        this.userRepository = userRepository;
+        this.taskRepository = taskRepository;
+    }
 
     // GET all categories for user
     @GetMapping
@@ -65,6 +73,13 @@ public class CategoryController {
     // DELETE category
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
+        // Check if category has tasks
+        List<Task> tasksWithCategory = taskRepository.findByUserIdAndCategoryIdOrderByCreatedAtDesc(1L, id);
+
+        if (!tasksWithCategory.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // 409 Conflict
+        }
+
         if (categoryRepository.existsById(id)) {
             categoryRepository.deleteById(id);
             return ResponseEntity.noContent().build();
