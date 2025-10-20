@@ -1,7 +1,6 @@
 -- Users table
 CREATE TABLE users (
                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                       supabase_id VARCHAR(255) UNIQUE NOT NULL,
                        username VARCHAR(50) UNIQUE NOT NULL,
                        email VARCHAR(100) UNIQUE NOT NULL,
                        avatar_url VARCHAR(255),

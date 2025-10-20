@@ -17,6 +17,14 @@ spring:
     enabled: true
     baseline-on-migrate: true
     locations: classpath:db/migration
+    validate-on-migrate: false
+
+jwt:
+  # In production, use environment variables or secure vault instead of hardcoding
+  # This key should be at least 256 bits (32 characters) for HS256 algorithm
+  secret: 1861XViFpn04HQ/QqrpOZrvBf8ZVMoRDGWKNmw5heA/l+VyuLVk+/PVpxUKZxc5u
+  # Token expiration time in milliseconds (86400000 ms = 24 hours)
+  expiration: 86400000
 
 server:
   port: 8080
