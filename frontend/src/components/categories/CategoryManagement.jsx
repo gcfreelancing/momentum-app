@@ -33,7 +33,7 @@ export default function CategoryManagementModal({
         setConfirmDialog({
             isOpen: true,
             title: 'Delete Category?',
-            message: `Are you sure you want to delete "${category?.name}"? Tasks with this category will keep their data.`,
+            message: `Are you sure you want to delete "${category?.name}"?`,
             categoryId: id
         })
     }

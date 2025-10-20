@@ -1,9 +1,11 @@
-import { Link, useLocation } from 'react-router-dom'
-import { Timer, CheckSquare, BarChart3, Settings } from 'lucide-react'
-import React from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Timer, CheckSquare, BarChart3, Settings, LogOut } from 'lucide-react'
+import { useAuth } from '../context/AuthContext.jsx'
 
 export default function Layout({ children }) {
     const location = useLocation()
+    const navigate = useNavigate()
+    const { user, logout } = useAuth()
 
     const navigation = [
         { name: 'Dashboard', href: '/', icon: BarChart3 },
@@ -11,6 +13,11 @@ export default function Layout({ children }) {
         { name: 'Tasks', href: '/tasks', icon: CheckSquare },
         { name: 'Settings', href: '/settings', icon: Settings },
     ]
+
+    const handleLogout = () => {
+        logout()
+        navigate('/login')
+    }
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -44,11 +51,21 @@ export default function Layout({ children }) {
                     })}
                 </nav>
 
+                {/* User Info & Logout */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 border-t dark:border-gray-700">
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                        <p className="font-medium">Demo Mode</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">Backend coming soon</p>
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="text-sm">
+                            <p className="font-medium text-gray-900 dark:text-white">{user?.username}</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
+                        </div>
                     </div>
+                    <button
+                        onClick={handleLogout}
+                        className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    >
+                        <LogOut size={16} />
+                        Logout
+                    </button>
                 </div>
             </div>
 
