@@ -20,14 +20,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "supabase_id", unique = true, nullable = false)
-    private String supabaseId;
-
     @Column(unique = true, nullable = false, length = 50)
     private String username;
 
     @Column(unique = true, nullable = false, length = 100)
     private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     @Column(name = "avatar_url")
     private String avatarUrl;
@@ -39,9 +39,6 @@ public class User {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    // NÃO ADICIONAR NENHUM CONSTRUTOR AQUI!
-    // O @NoArgsConstructor já cria: public User() {}
 
     @Override
     public final boolean equals(Object o) {
