@@ -3,5 +3,11 @@
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console_1.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console_2.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console_3.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console_4.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/d191bbc0-cfb5-4ab6-af9a-2034aeb4d346/console_5.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V1__initial_schema.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V2__seed_achievements.sql" value="d191bbc0-cfb5-4ab6-af9a-2034aeb4d346" />
   </component>
 </project>
