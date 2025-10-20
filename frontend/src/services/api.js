@@ -9,7 +9,7 @@ const api = axios.create({
     }
 })
 
-// Interceptor para adicionar token (quando tiveres auth)
+// Request interceptor - add token to every request
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -18,10 +18,19 @@ api.interceptors.request.use((config) => {
     return config
 })
 
-// Interceptor para tratar erros
+// Response interceptor - handle errors
 api.interceptors.response.use(
     (response) => response,
     (error) => {
+        // Don't redirect to login if we're already on the login endpoint
+        const isLoginRequest = error.config?.url?.includes('/auth/login')
+        
+        // If 401 Unauthorized and NOT a login request, redirect to login
+        if (error.response?.status === 401 && !isLoginRequest) {
+            localStorage.removeItem('token')
+            window.location.href = '/login'
+        }
+        
         console.error('API Error:', error)
         return Promise.reject(error)
     }
